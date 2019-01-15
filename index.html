@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000000;
+            display: inline-block;
+            white-space:normal;
+            word-break:break-all;
+            word-wrap:break-word;
+
+        }
+
+        ul {
+            display: inline-block;
+        }
+
+        ul li {
+            width: 5px;
+            height: 5px;
+            border: 1px solid #000;
+            float: left;
+            margin: 5px;
+
+        }
+    </style>
+</head>
+
+<body>
+<textarea id="text" cols="30" rows="10">asdfghjklknbcrtyukjhgdskoiusbnjkoiuytres</textarea>
+<button id="btn" class="clear">点击</button>
+<span id="n">0/30</span>
+<ul class="clear">
+    <li class="active"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<div id="box"></div>
+<script>
+
+
+let list = document.getElementsByName('li');
+let timer = null;
+let num = 0;
+
+btn.onclick = function () {
+    if(!text.value) return;
+    let  len = text.value.length;
+
+    timer = setInterval(function () {
+        let v = text.value;
+        box.innerHTML += v[0];
+        text.value = v.substring(1);
+            num++;
+
+ if (num >= len) {
+     clearInterval(timer);
+     num=0;
+
+        }
+    }, 50);
+
+
+}
+
+</script>
+</body>
+</html>
